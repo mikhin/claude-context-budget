@@ -57,6 +57,18 @@ claude "read ~/Desktop/handoff-<topic>.txt and continue"
 
 A marker file per session remembers which step was already asked, so Claude asks twice at most.
 
+## Status line
+
+`--status` prints the same size for the Claude Code status line, against the threshold, red past it:
+
+```
+ctx 97K/200K
+```
+
+```json
+{ "statusLine": { "type": "command", "command": "node ~/.claude/hooks/context-budget.mjs --status" } }
+```
+
 ## Caveats
 
 - The transcript format is not a documented API. It can change without notice.
