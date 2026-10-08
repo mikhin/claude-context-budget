@@ -1,0 +1,12 @@
+{
+  "name": "context-budget",
+  "version": "0.1.0",
+  "description": "Warns when session context grows past a threshold and offers a handoff",
+  "author": {
+    "name": "Yuri Mikhin",
+    "url": "https://github.com/mikhin"
+  },
+  "homepage": "https://github.com/mikhin/claude-context-budget",
+  "repository": "https://github.com/mikhin/claude-context-budget",
+  "license": "MIT"
+}

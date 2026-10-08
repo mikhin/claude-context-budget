@@ -12,22 +12,13 @@ Context 212K — time to wrap up
 
 ## Install
 
-```sh
-curl -o ~/.claude/hooks/context-budget.mjs \
-  https://raw.githubusercontent.com/mikhin/claude-context-budget/main/context-budget.mjs
+```
+/plugin marketplace add mikhin/claude-plugins
+/plugin install context-budget@mikhin
 ```
 
-Then in `~/.claude/settings.json`:
-
-```json
-{
-  "hooks": {
-    "UserPromptSubmit": [
-      { "hooks": [{ "type": "command", "command": "node ~/.claude/hooks/context-budget.mjs" }] }
-    ]
-  }
-}
-```
+Installed it with `curl` before? Remove its `UserPromptSubmit` entry from `~/.claude/settings.json`,
+or it runs twice. The `statusLine` entry stays.
 
 Needs Node 18+.
 
@@ -63,6 +54,13 @@ A marker file per session remembers which step was already asked, so Claude asks
 
 ```
 ctx 97K/200K
+```
+
+A plugin cannot set the status line, so it needs its own copy of the script:
+
+```sh
+curl -o ~/.claude/hooks/context-budget.mjs \
+  https://raw.githubusercontent.com/mikhin/claude-context-budget/main/context-budget.mjs
 ```
 
 ```json
